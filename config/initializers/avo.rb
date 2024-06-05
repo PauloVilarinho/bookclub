@@ -1,8 +1,16 @@
-# For more information regarding these settings check out our docs https://docs.avohq.io
+Rails.configuration.to_prepare do
+  Avo::ApplicationController.include Authenticable
+end
+
+
+#For more information regarding these settings check out our docs https://docs.avohq.io
 # The values disaplayed here are the default ones. Uncomment and change them to fit your needs.
 Avo.configure do |config|
+  config.current_user_method do
+    Current.user
+  end
   ## == Routing ==
-  config.root_path = '/avo'
+  config.root_path = "/avo"
   # used only when you have custom `map` configuration in your config.ru
   # config.prefix_path = "/internal"
 

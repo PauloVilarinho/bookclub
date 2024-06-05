@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Use main development branch of Rails
-gem "rails", github: "rails/rails", branch: "main"
+gem "rails"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
@@ -47,6 +47,8 @@ group :development, :test do
   # Pry for Rails console debugging [https://github.com/rweng/pry-rails]
   gem "pry-rails"
 
+  gem "factory_bot_rails"
+
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
@@ -66,6 +68,8 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 6.0"
+  gem "faker"
 end
 
 gem "tailwindcss-rails", "~> 2.3"

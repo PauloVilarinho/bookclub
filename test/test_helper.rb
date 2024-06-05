@@ -9,8 +9,17 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  include FactoryBot::Syntax::Methods
   # Add more helper methods to be used by all tests here...
   def sign_in_as(user)
     post(sign_in_url, params: { email: user.email, password: "Secret1*3*5*" }); user
+  end
+end
+
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :minitest
+    with.library :rails
   end
 end
